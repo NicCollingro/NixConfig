@@ -1,5 +1,12 @@
 {config, lib, pkgs, ...}:
 {
+  imports = [
+    ./hardware-configuration.nix
+    ./networkmanager.nix
+    ./users.nix
+    ./programs.nix
+  ];
+
   boot.loader = {
   grub = {
     device = "nodev";
