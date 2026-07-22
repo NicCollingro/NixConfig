@@ -12,5 +12,5 @@
 
   networking.hostName="Kopernikus-linux";
 
-  sytem.stateVersion = "26.05";
+  system.stateVersion = "26.05";
 }
