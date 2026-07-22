@@ -9,5 +9,4 @@
     helix
     fastfetch
   ];
-ki
 }
