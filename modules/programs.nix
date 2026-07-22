@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   #programs
   programs.firefox.enable = true;
