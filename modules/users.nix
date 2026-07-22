@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   users.users.niccollingro = {
     isNormalUser = true;
