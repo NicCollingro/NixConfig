@@ -1,7 +1,3 @@
-{
-  programs.kitty.enable = true;
-  wayland.windowManager.hyprland.enable = true;
-}
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
