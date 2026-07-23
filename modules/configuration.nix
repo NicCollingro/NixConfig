@@ -5,6 +5,7 @@
     ./networkmanager.nix
     ./users.nix
     ./programs.nix
+    ./nix-settings.nix
   ];
 
   boot.loader = {
