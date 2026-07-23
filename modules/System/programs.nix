@@ -12,5 +12,6 @@
     helix
     fastfetch
     home-manager
+    kitty
   ];
 }
