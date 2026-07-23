@@ -38,7 +38,7 @@
         };
       };
 
-      time.timeZone = "Europe/Berlin"
+      time.timeZone = "Europe/Berlin";
 
       # TTY console settings
       console = {
