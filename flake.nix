@@ -1,11 +1,17 @@
 {
   description = "Ni(x)cOS dotfiles";
 
-  outputs = { self, nixpkgs, ...}: {
+  outputs = { self, nixpkgs, home-manager, ...}: {
     nixosConfigurations.Kopernikus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./modules/configuration.nix
+        ./modules/System/configuration.nix
+      ];
+    };
+    homeConfigurations.niccollingro = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs{system = "x86_64-linux"};
+      modules = [
+        ./modules/User/niccollingro.nix
       ];
     };
   };
