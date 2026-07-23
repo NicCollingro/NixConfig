@@ -6,6 +6,7 @@
     ./users.nix
     ./programs.nix
     ./nix-settings.nix
+    ./ly.nix
   ];
 
   boot.loader = {
@@ -19,6 +20,8 @@
   };
 
   networking.hostName="Kopernikus-linux";
+
+  security.polkit.enable = true;
 
   system.stateVersion = "26.05";
 }
