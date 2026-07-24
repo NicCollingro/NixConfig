@@ -5,6 +5,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./System/niri.nix
+    ./kitty.nix
+    ./niri/default.nix
   ];
 }
