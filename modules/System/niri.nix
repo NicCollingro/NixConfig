@@ -28,5 +28,5 @@
             RestartSec = 1;
             TimeoutStopSec = 10;
           };
-        }
+        };
 }
