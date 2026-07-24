@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
   ];
-
+  programs.hyprland.enable = true;
   programs.kitty.enable = true;
 
   wayland.windowManager.hyprland.settings = {
@@ -16,7 +16,7 @@
       ]
       ++ (
         # workspaces
-        #           # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
         builtins.concatLists (builtins.genList (i:
             let ws = i + 1;
             in [
