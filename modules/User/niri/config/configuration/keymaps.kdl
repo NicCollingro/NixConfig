@@ -2,9 +2,9 @@ binds {
             Mod+K { show-hotkey-overlay; }
 
             // Binds for running programs: terminal, app launcher, screen locker.
-            Mod+Return hotkey-overlay-title="Open a Terminal: ${user.defaultTerminal}" { spawn "${user.defaultTerminal}"; }
-            Mod+B hotkey-overlay-title="Run an Application: ${user.defaultBrowser}" { spawn "${user.defaultBrowser}"; }
-            Mod+E hotkey-overlay-title="Run an Application: ${user.defaultFileManager}" { spawn "${user.defaultFileManager}"; }
+            Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+            Mod+B hotkey-overlay-title="Run an Application: firefox" { spawn "firefox"; }
+            Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "nautilus"; }
 
             Mod+O repeat=false { toggle-overview; }
             Mod+Q repeat=false { close-window; }
