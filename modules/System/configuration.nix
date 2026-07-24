@@ -8,6 +8,7 @@
     ./nix-settings.nix
     ./ly.nix
     ./niri.nix
+    ./bluetooth.nix
   ];
 
   boot.loader = {
@@ -21,6 +22,8 @@
   };
 
   networking.hostName="Kopernikus-linux";
+
+
 
   security.polkit.enable = true;
 
