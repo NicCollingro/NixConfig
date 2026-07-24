@@ -5,6 +5,6 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./hyprland.nix
+    ./System/niri.nix
   ];
 }

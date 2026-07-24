@@ -7,6 +7,7 @@
     ./programs.nix
     ./nix-settings.nix
     ./ly.nix
+    ./niri.nix
   ];
 
   boot.loader = {
