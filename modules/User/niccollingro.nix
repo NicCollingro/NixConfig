@@ -6,6 +6,5 @@
 
   imports = [
     ./kitty.nix
-    ./niri/default.nix
   ];
 }

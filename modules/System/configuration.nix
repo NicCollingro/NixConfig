@@ -21,7 +21,7 @@
   efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName="Kopernikus-linux";
+  networking.hostName="Kopernikus";
 
 
 
