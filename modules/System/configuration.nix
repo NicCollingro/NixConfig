@@ -7,7 +7,7 @@
     ./programs.nix
     ./nix-settings.nix
     ./ly.nix
-    ./niri.nix
+    ./hyprland.nix
     ./bluetooth.nix
   ];
 
