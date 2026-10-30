@@ -11,6 +11,9 @@
     ./bluetooth.nix
   ];
 
+  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  hardware.enableRedistributableFirmware = true;
+
   boot.loader = {
   grub = {
     device = "nodev";
