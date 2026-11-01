@@ -7,5 +7,6 @@
   imports = [
     ./kitty.nix
     ./hyprland.nix
+    ./claude.nix
   ];
 }
