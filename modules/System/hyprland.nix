@@ -12,6 +12,14 @@
     kitty
   ];
 
+  security.pam.services.ly.enableGnomeKeyring = true;
+
+  environment.sessionVariables = {
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "24";
+    NIXOS_OZONE_WL = "1";
+  };
+
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
     wantedBy = [ "graphical-session.target" ];

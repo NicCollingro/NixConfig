@@ -10,5 +10,10 @@
     wget
     fastfetch
     home-manager
+
+    vesktop
+    spotify
+
+    prismlauncher
   ];
 }
