@@ -8,5 +8,6 @@
     ./kitty.nix
     ./hyprland.nix
     ./claude.nix
+    ./waybar.nix
   ];
 }
