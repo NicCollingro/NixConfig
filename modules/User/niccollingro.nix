@@ -7,6 +7,7 @@
   imports = [
     ./kitty.nix
     ./hyprland.nix
+    ./hyprpaper.nix
     ./claude.nix
     ./waybar.nix
     ./fuzzel.nix	
