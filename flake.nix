@@ -4,7 +4,6 @@
   outputs = { self, nixpkgs, home-manager, ...}: {
     nixosConfigurations.Kopernikus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      config.allowUnfree = true;
       modules = [
         ./modules/System/configuration.nix
       ];

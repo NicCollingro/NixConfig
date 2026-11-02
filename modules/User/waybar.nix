@@ -11,7 +11,7 @@
       # Which modules appear where on the bar
       modules-left   = [ "hyprland/workspaces" ];
       modules-center = [ "clock" ];
-      modules-right  = [ "tray" "pulseaudio" "network" ];
+      modules-right  = [ "tray" "pulseaudio" "network" "notification"];
 
       clock = {
         format = "{:%d.%m.%Y %H:%M}";
@@ -29,6 +29,20 @@
         format-ethernet = "󰈀 wired";
         format-wifi = "󰖩 {essid}";
         format-disconnected = "󰖪 offline";
+      };
+
+      notification = {
+        exec = "swaync-client -swb";
+        return-type = "json";
+        format = "{icon}";
+        format-icons = {
+          none = "󰂚";                    # no notifications
+    	  notification = "󱅫";            # unread notifications
+    	  dnd-none = "󰂛";                # do-not-disturb on
+    	  dnd-notification = "󰂛";
+  	};
+  	on-click = "swaync-client -t -sw";        # left-click: open panel
+  	on-click-right = "swaync-client -d -sw";  # right-click: toggle do-not-disturb
       };
     };
 
@@ -55,7 +69,7 @@
         background: rgba(137, 180, 250, 0.3);
       }
 
-      #clock, #tray, #pulseaudio, #network {
+      #clock, #tray, #pulseaudio, #network, #notification {
         padding: 0 10px;
       }
     '';

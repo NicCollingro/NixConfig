@@ -7,7 +7,6 @@
 
   environment.systemPackages = with pkgs; [
     papirus-icon-theme
-    bibata-cursors
     nautilus
     kitty
   ];
@@ -15,8 +14,6 @@
   security.pam.services.ly.enableGnomeKeyring = true;
 
   environment.sessionVariables = {
-    XCURSOR_THEME = "Bibata-Modern-Classic";
-    XCURSOR_SIZE = "24";
     NIXOS_OZONE_WL = "1";
   };
 

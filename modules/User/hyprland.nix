@@ -4,6 +4,15 @@ let
 	bind = key: action: { _args = [ key (lua action)];};
 	mouseBind = key: action: { _args = [ key (lua action) { mouse = true; } ]; };
 	exec= cmd: ''hl.dsp.exec_cmd("${cmd}")'';
+	workspaceBinds = lib.concatMap (i:
+		let
+			key = toString (lib.mod i 10);
+			ws = toString i;
+		in [
+			(bind "SUPER + ${key}" "hl.dsp.focus({workspace = ${ws}})")
+			(bind "SUPER + SHIFT + ${key}" "hl.dsp.window.move({ workspace = ${ws} })")
+		]
+	) (lib.range 1 10);
 in
 {
 	wayland.windowManager.hyprland = {
@@ -28,12 +37,16 @@ in
 				(bind "SUPER + SHIFT + M" "hl.dsp.exit()")
 				(bind "SUPER + M" (exec "spotify"))
 				(bind "SUPER + D" (exec "vesktop"))
-				(bind "SUPER + F" "hl.dsp.window.fullscreen()")
-				(bind "SUPER + V"''hl.dsp.window.float({action = "toggle"})'')
+				(bind "SUPER + F" ''hl.dsp.window.fullscreen({mode="maximized", action="toggle"})'')
+				(bind "SUPER + SHIFT + F" "hl.dsp.window.fullscreen()")
+				(bind "SUPER + V" ''hl.dsp.window.float({action = "toggle"})'')
+				(bind "SUPER + SPACE" (exec "fuzzel"))			
 
+				(bind "SUPER + N" (exec "swaync-client -t -sw"))
+	
 				(mouseBind "SUPER + mouse:272" "hl.dsp.window.drag()")
-				(mouseBind "SUPER + mouse:273" "hl.dsp.window.resize()")
-			];
+				(mouseBind "SUPER + mouse:273" "hl.dsp.window.resize()")	
+			] ++ workspaceBinds;
 
 			# Ignore apps asking to be maximized (kitty did this and hid other tiles)
 			window_rule = [
@@ -52,8 +65,8 @@ in
 	};
 	home.pointerCursor={
 		enable = true;
-		package=pkgs.bibata-cursors;
-		name = "Bibata-Modern_classic";
+		package = pkgs.whitesur-cursors;
+		name = "WhiteSur-cursors";
 		size=24;
 		gtk.enable = true;
 		x11.enable = true;

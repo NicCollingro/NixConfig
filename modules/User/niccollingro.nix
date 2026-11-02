@@ -9,5 +9,7 @@
     ./hyprland.nix
     ./claude.nix
     ./waybar.nix
+    ./fuzzel.nix	
+    ./sway.nix
   ];
 }
