@@ -14,5 +14,7 @@
     ./sway.nix
     ./evince.nix
     ./loupe.nix
+    ./vesktop.nix
+    ./simpleScan.nix
   ];
 }

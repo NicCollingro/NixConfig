@@ -10,6 +10,8 @@
     ./hyprland.nix
     ./bluetooth.nix
     ./nvidia.nix
+    ./usergroups.nix
+    ./printing.nix
   ];
 
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
