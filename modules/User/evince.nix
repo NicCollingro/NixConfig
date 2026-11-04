@@ -1,5 +1,3 @@
-modules/User/evince.nix
-
 { pkgs, ... }:
 {
   home.packages = [ pkgs.evince ];
