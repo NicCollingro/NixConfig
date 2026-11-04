@@ -79,6 +79,13 @@ in
 					opacity = "0.9 0.8";
 				}
 			];
+			# unlock keyring at startup
+			on = { _args = ["hyprland.start" (lua ''
+				function()
+					hl.exec.cmd("gnome-keyring-daemon --start --components=secrets")
+				end
+				'')];
+			};
 		};
 	};
 	home.pointerCursor={

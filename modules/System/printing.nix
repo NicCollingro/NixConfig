@@ -21,4 +21,6 @@
       pkgs.sane-airscan   # driverless scanning over the network (eSCL/WSD)
     ];
   };
+  #system-config-printers
+  programs.system-config-printer.enable = true;
 }
