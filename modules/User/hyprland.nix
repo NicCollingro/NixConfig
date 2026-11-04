@@ -20,6 +20,24 @@ in
 		package = null;
 		portalPackage = null;
 		settings = {
+			env = [
+				{ _args = [ "LIBVA_DRIVER_NAME" "nvidia"]; }
+				{ _args = [ "__GLX_VENDOR_LIBRARY_NAME" "nvidia" ];}
+			];
+ 	        	monitor = [
+                        	{
+                        		output = "DP-1";                 # LG, left
+                                	mode = "2560x1440@143.97";
+                                	position = "0x0";
+                                	scale = 1;
+                        	}
+                        	{
+                                	output = "DP-3";                 # HP, right
+                                	mode = "2560x1440@143.86";
+                                	position = "2560x0";
+                                	scale = 1;
+                        	}
+                        ];
 			config = {
 				input.kb_layout = "de";
 				cursor.no_hardware_cursors = true;			

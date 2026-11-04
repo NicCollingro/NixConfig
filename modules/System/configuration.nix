@@ -9,6 +9,7 @@
     ./ly.nix
     ./hyprland.nix
     ./bluetooth.nix
+    ./nvidia.nix
   ];
 
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];

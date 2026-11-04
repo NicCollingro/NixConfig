@@ -12,5 +12,7 @@
     ./waybar.nix
     ./fuzzel.nix	
     ./sway.nix
+    ./evince.nix
+    ./loupe.nix
   ];
 }
