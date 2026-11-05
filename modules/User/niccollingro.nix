@@ -4,6 +4,12 @@
   home.stateVersion = "26.05";
   programs.home-manager.enable = true;
 
+  services.home-manager.autoExpire = {
+    enable = true;
+    frequency = "weekly";
+    timestamp = "-14 days";
+  };
+
   imports = [
     ./kitty.nix
     ./hyprland.nix
