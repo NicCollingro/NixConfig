@@ -12,6 +12,7 @@
     ./nvidia.nix
     ./printing.nix
     ./sound.nix
+    ./storageDevices.nix
   ];
 
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
