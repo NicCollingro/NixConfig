@@ -41,6 +41,7 @@ in
                         ];
 			config = {
 				input.kb_layout = "de";
+				input.numlock_by_default = true;
 				cursor.no_hardware_cursors = true;			
 				decoration = {
 					rounding = 10;

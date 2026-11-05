@@ -11,6 +11,7 @@
     ./bluetooth.nix
     ./nvidia.nix
     ./printing.nix
+    ./sound.nix
   ];
 
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
