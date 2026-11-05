@@ -25,5 +25,6 @@
     ./kicad.nix
     ./whatsapp.nix
     ./powermenu.nix
+    ./teams.nix
   ];
 }
