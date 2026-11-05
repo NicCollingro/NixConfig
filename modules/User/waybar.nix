@@ -1,3 +1,4 @@
+let c = import ./colorthemes.nix; in
 {
   programs.waybar = {
     enable = true;
@@ -11,7 +12,7 @@
       # Which modules appear where on the bar
       modules-left   = [ "hyprland/workspaces" ];
       modules-center = [ "clock" ];
-      modules-right  = [ "tray" "pulseaudio" "network" "notification"];
+      modules-right  = [ "tray" "pulseaudio" "network" "custom/notification"];
 
       clock = {
         format = "{:%d.%m.%Y %H:%M}";
@@ -31,7 +32,7 @@
         format-disconnected = "󰖪 offline";
       };
 
-      notification = {
+      "custom/notification" = {
         exec = "swaync-client -swb";
         return-type = "json";
         format = "{icon}";
@@ -43,6 +44,7 @@
   	};
   	on-click = "swaync-client -t -sw";        # left-click: open panel
   	on-click-right = "swaync-client -d -sw";  # right-click: toggle do-not-disturb
+	escape = true;
       };
     };
 
@@ -54,23 +56,23 @@
       }
 
       window#waybar {
-        background: rgba(30, 30, 46, 0.85);
-        color: #cdd6f4;
+        background: alpha(#${c.base}, 0.85);
+        color: #${c.text};
       }
 
       #workspaces button {
-        color: #cdd6f4;
-	padding: 2 2;
+        color: #${c.text};
+	padding: 2px 2px;
         margin: 10px 10px;
 	min-height: 0;
       }
 
       #workspaces button.active {
-        background: rgba(137, 180, 250, 0.3);
+        background: alpha(#${c.blue}, 0.3);
       }
 
-      #clock, #tray, #pulseaudio, #network, #notification {
-        padding: 0 10px;
+      #clock, #tray, #pulseaudio, #network, #custom-notification {
+        padding: 0px 10px;
       }
     '';
   };

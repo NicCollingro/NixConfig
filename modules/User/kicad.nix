@@ -1,5 +1,4 @@
+{ pkgs, ...}:
 {
-	environment.systemPackages = [
-		pkgs.kicad
-	];
+	home.packages = [ pkgs.kicad ];
 }

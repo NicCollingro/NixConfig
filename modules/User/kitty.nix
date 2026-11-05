@@ -1,4 +1,5 @@
 { pkgs, ...}:
+let c = import ./colorthemes.nix; in
 {
   programs.kitty = {
     enable = true;
@@ -11,6 +12,9 @@
    
     settings = {
       window_padding_width = 8;
+      background = "#${c.base}";
+      foreground = "#${c.text}";
+      cursor = "#${c.blue}";
     };
   };
 }

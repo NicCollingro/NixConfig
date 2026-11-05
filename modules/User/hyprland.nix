@@ -13,6 +13,7 @@ let
 			(bind "SUPER + SHIFT + ${key}" "hl.dsp.window.move({ workspace = ${ws} })")
 		]
 	) (lib.range 1 10);
+	c = import ./colorthemes.nix;
 in
 {
 	wayland.windowManager.hyprland = {
@@ -44,6 +45,11 @@ in
 				decoration = {
 					rounding = 10;
 					rounding_power = 2;
+				};
+				general = {
+					border_size = 2;
+					col.active_border = "rgb(${c.blue})";
+					col.inactive_border = "rgb(${c.surface})";
 				};
 			};
 					

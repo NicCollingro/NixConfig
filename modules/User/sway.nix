@@ -1,3 +1,4 @@
+let c = import ./colorthemes.nix; in
 {
   services.swaync = {
     enable = true;
@@ -32,9 +33,9 @@
 
       .notification,
       .control-center {
-        background: rgba(30, 30, 46, 0.9);
-        color: #cdd6f4;
-        border: 2px solid #89b4fa;
+        background: alpha(#${c.base}, 0.9);
+        color: #${c.text};
+        border: 2px solid #${c.blue};
         border-radius: 10px;
       }
     '';

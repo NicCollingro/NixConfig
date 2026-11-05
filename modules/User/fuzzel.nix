@@ -1,3 +1,4 @@
+let c = import ./colorthemes.nix; in
 {
   programs.fuzzel = {
     enable = true;
@@ -14,12 +15,12 @@
       };
 
       colors = {
-        background      = "1e1e2ee6";   # RRGGBBAA – last two digits = transparency
-        text            = "cdd6f4ff";
-        match           = "89b4faff";   # the letters you typed
-        selection       = "89b4fa4d";   # highlighted entry
-        selection-text  = "cdd6f4ff";
-        border          = "89b4faff";
+        background      = "${c.base}e6";
+        text            = "${c.text}ff";
+        match           = "${c.blue}ff";
+        selection       = "${c.blue}4d";
+        selection-text  = "${c.text}ff";
+        border          = "${c.blue}ff";
       };
 
       border = {
