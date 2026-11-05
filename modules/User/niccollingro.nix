@@ -24,5 +24,6 @@
     ./simpleScan.nix
     ./kicad.nix
     ./whatsapp.nix
+    ./powermenu.nix
   ];
 }

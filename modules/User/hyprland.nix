@@ -68,6 +68,13 @@ in
 				(bind "SUPER + SPACE" (exec "fuzzel"))			
 
 				(bind "SUPER + N" (exec "swaync-client -t -sw"))
+
+				(bind "SUPER + Escape" (exec "powermenu"))
+
+				(bind "SUPER + left" ''hl.dsp.focus({ direction = "left" })'')
+				(bind "SUPER + right" ''hl.dsp.focus({ direction = "right" })'')
+				(bind "SUPER + up" ''hl.dsp.focus({ direction = "up" })'')
+				(bind "SUPER + down" ''hl.dsp.focus({ direction = "down" })'')
 	
 				(mouseBind "SUPER + mouse:272" "hl.dsp.window.drag()")
 				(mouseBind "SUPER + mouse:273" "hl.dsp.window.resize()")	

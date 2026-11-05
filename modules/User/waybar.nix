@@ -12,7 +12,7 @@ let c = import ./colorthemes.nix; in
       # Which modules appear where on the bar
       modules-left   = [ "hyprland/workspaces" ];
       modules-center = [ "clock" ];
-      modules-right  = [ "tray" "pulseaudio" "network" "custom/notification"];
+      modules-right  = [ "tray" "pulseaudio" "network" "custom/notification" "custom/power"];
 
       clock = {
         format = "{:%d.%m.%Y %H:%M}";
@@ -46,6 +46,12 @@ let c = import ./colorthemes.nix; in
   	on-click-right = "swaync-client -d -sw";  # right-click: toggle do-not-disturb
 	escape = true;
       };
+
+      "custom/power" = {
+	format = "󰐥";
+  	tooltip-format = "Power menu";
+  	on-click = "powermenu";
+      };
     };
 
     # CSS, like on a website
@@ -69,6 +75,11 @@ let c = import ./colorthemes.nix; in
 
       #workspaces button.active {
         background: alpha(#${c.blue}, 0.3);
+      }
+     
+      #custom-power {
+        color: #${c.red};
+        padding: 0 12px;
       }
 
       #clock, #tray, #pulseaudio, #network, #custom-notification {
