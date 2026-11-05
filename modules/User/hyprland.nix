@@ -88,7 +88,7 @@ in
 			# unlock keyring at startup
 			on = { _args = ["hyprland.start" (lua ''
 				function()
-					hl.exec.cmd("gnome-keyring-daemon --start --components=secrets")
+					hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 				end
 				'')];
 			};
