@@ -23,5 +23,6 @@
     ./vesktop.nix
     ./simpleScan.nix
     ./kicad.nix
+    ./whatsapp.nix
   ];
 }
