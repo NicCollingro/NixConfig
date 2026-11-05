@@ -16,5 +16,6 @@
     ./loupe.nix
     ./vesktop.nix
     ./simpleScan.nix
+    ./kicad.nix
   ];
 }
