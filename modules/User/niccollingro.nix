@@ -32,5 +32,6 @@
     ./codium.nix
     ./uv.nix
     ./btop.nix
+    ./typst.nix
   ];
 }
