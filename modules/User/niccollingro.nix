@@ -31,5 +31,6 @@
     ./freecad.nix
     ./codium.nix
     ./uv.nix
+    ./btop.nix
   ];
 }
