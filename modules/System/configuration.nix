@@ -14,6 +14,7 @@
     ./sound.nix
     ./storageDevices.nix
     ./steam.nix
+    ./nix-ld.nix
   ];
 
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];

@@ -29,5 +29,7 @@
     ./thunderbird.nix
     ./gimp.nix
     ./freecad.nix
+    ./codium.nix
+    ./uv.nix
   ];
 }

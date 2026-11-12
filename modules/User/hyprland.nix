@@ -81,9 +81,9 @@ in
 				(mouseBind "SUPER + mouse:272" "hl.dsp.window.drag()")
 				(mouseBind "SUPER + mouse:273" "hl.dsp.window.resize()")
 			
-				(bind "XF86AudioMure" (exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-				(mediaBind "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFUALT_AUDIO_SINK@ 1%-"))
-				(mediaBind "XF86AudioRaiseVolume" (exec "wpctl set-colume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"))
+				(bind "XF86AudioMute" (exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+				(mediaBind "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"))
+				(mediaBind "XF86AudioRaiseVolume" (exec "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"))
 			] ++ workspaceBinds;
 
 			# Ignore apps asking to be maximized (kitty did this and hid other tiles)
