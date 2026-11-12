@@ -3,6 +3,7 @@ let
 	lua = lib.generators.mkLuaInline;
 	bind = key: action: { _args = [ key (lua action)];};
 	mouseBind = key: action: { _args = [ key (lua action) { mouse = true; } ]; };
+	mediaBind = key: action: { _args = [ key (lua action) { locked = true; repeating = true; } ]; };
 	exec= cmd: ''hl.dsp.exec_cmd("${cmd}")'';
 	workspaceBinds = lib.concatMap (i:
 		let
@@ -24,6 +25,7 @@ in
 			env = [
 				{ _args = [ "LIBVA_DRIVER_NAME" "nvidia"]; }
 				{ _args = [ "__GLX_VENDOR_LIBRARY_NAME" "nvidia" ];}
+				{ _args = [ "LD_LIBRARY_PATH" "/etc/sane-libs" ];}
 			];
  	        	monitor = [
                         	{
@@ -77,7 +79,11 @@ in
 				(bind "SUPER + down" ''hl.dsp.focus({ direction = "down" })'')
 	
 				(mouseBind "SUPER + mouse:272" "hl.dsp.window.drag()")
-				(mouseBind "SUPER + mouse:273" "hl.dsp.window.resize()")	
+				(mouseBind "SUPER + mouse:273" "hl.dsp.window.resize()")
+			
+				(bind "XF86AudioMure" (exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+				(mediaBind "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFUALT_AUDIO_SINK@ 1%-"))
+				(mediaBind "XF86AudioRaiseVolume" (exec "wpctl set-colume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"))
 			] ++ workspaceBinds;
 
 			# Ignore apps asking to be maximized (kitty did this and hid other tiles)

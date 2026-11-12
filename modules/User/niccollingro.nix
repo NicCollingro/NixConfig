@@ -26,5 +26,8 @@
     ./whatsapp.nix
     ./powermenu.nix
     ./teams.nix
+    ./thunderbird.nix
+    ./gimp.nix
+    ./freecad.nix
   ];
 }

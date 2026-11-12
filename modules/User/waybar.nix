@@ -7,7 +7,7 @@ let c = import ./colorthemes.nix; in
     settings.mainBar = {
       layer = "top";
       position = "top";
-      height = 30;
+      height = 15;
 
       # Which modules appear where on the bar
       modules-left   = [ "hyprland/workspaces" ];
@@ -68,8 +68,8 @@ let c = import ./colorthemes.nix; in
 
       #workspaces button {
         color: #${c.text};
-	padding: 2px 2px;
-        margin: 10px 10px;
+	padding: 0px 2px;
+        margin: 2px 5px;
 	min-height: 0;
       }
 

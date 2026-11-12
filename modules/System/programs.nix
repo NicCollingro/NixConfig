@@ -4,6 +4,7 @@
   programs.firefox.enable = true;
   programs.git.enable = true;
 
+  programs.firejail.enable = true;
   #system-wide
   environment.systemPackages = with pkgs; [
     vim
