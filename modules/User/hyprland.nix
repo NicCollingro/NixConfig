@@ -51,7 +51,7 @@ in
 				};
 				general = {
 					border_size = 2;
-					col.active_border = "rgb(${c.blue})";
+					col.active_border = "rgb(${c.accent})";
 					col.inactive_border = "rgb(${c.surface})";
 				};
 			};

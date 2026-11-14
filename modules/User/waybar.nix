@@ -74,7 +74,7 @@ let c = import ./colorthemes.nix; in
       }
 
       #workspaces button.active {
-        background: alpha(#${c.blue}, 0.3);
+        background: alpha(#${c.accent}, 0.3);
       }
      
       #custom-power {

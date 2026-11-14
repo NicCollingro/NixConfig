@@ -14,7 +14,7 @@ let c = import ./colorthemes.nix; in
       window_padding_width = 8;
       background = "#${c.base}";
       foreground = "#${c.text}";
-      cursor = "#${c.blue}";
+      cursor = "#${c.accent}";
     };
   };
 }

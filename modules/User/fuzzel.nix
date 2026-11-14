@@ -17,10 +17,10 @@ let c = import ./colorthemes.nix; in
       colors = {
         background      = "${c.base}e6";
         text            = "${c.text}ff";
-        match           = "${c.blue}ff";
-        selection       = "${c.blue}4d";
+        match           = "${c.accent}ff";
+        selection       = "${c.accent}4d";
         selection-text  = "${c.text}ff";
-        border          = "${c.blue}ff";
+        border          = "${c.accent}ff";
       };
 
       border = {

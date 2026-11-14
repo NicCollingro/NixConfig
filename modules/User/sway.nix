@@ -35,7 +35,7 @@ let c = import ./colorthemes.nix; in
       .control-center {
         background: alpha(#${c.base}, 0.9);
         color: #${c.text};
-        border: 2px solid #${c.blue};
+        border: 2px solid #${c.accent};
         border-radius: 10px;
       }
     '';
