@@ -33,5 +33,7 @@
     ./uv.nix
     ./btop.nix
     ./typst.nix
+    ./swayosd.nix
+    ./gtk.nix
   ];
 }
