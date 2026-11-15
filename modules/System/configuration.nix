@@ -16,6 +16,7 @@
     ./steam.nix
     ./nix-ld.nix
     ./c-toolchain.nix
+    ./logitech.nix
   ];
 
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];

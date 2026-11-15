@@ -1,9 +1,29 @@
+{ pkgs, ... }:
 let
   c = import ./colorthemes.nix;
   flare = 15;                                   # size of the outward curves in px
-  f = "${toString flare}px";                    # "30px"
-  f1 = "${toString (flare - 1)}px";             # "29px" – 1px before the edge, for a smooth but sharp line
+  f = "${toString flare}px";                    # "15px"
+  f1 = "${toString (flare - 1)}px";             # "14px" – 1px before the edge, for a smooth but sharp line
   barBg = "#${c.base}";
+
+  ha-temp = pkgs.writeShellScriptBin "ha-temp" ''
+    HA_URL="http://192.168.178.150"      # ← your HA address
+    ENTITY="sensor.outside_temperature"            # ← your sensor's entity ID
+
+    TOKEN=$(cat ~/.config/homeassistant/token 2>/dev/null) \
+      || { echo '{"text":"--°C","tooltip":"No token file"}'; exit 0; }
+
+    DATA=$(${pkgs.curl}/bin/curl -sf --max-time 5 \
+      -H "Authorization: Bearer $TOKEN" \
+      "$HA_URL/api/states/$ENTITY") \
+      || { echo '{"text":"--°C","tooltip":"Home Assistant not reachable"}'; exit 0; }
+
+    echo "$DATA" | ${pkgs.jq}/bin/jq -c '{
+      text: (.state + "°C"),
+      tooltip: ("Outside: " + .state + " " + .attributes.unit_of_measurement
+                + "\nUpdated: " + .last_updated[11:16])
+    }'
+  '';
 in
 {
   programs.waybar = {
@@ -21,11 +41,33 @@ in
       # Which modules appear where on the bar
       modules-left   = [ "hyprland/workspaces" ];
       modules-center = [ "clock" ];
-      modules-right  = [ "pulseaudio" "network" "custom/notification" "custom/power"];
+      modules-right  = [ "custom/outside" "pulseaudio" "network" "custom/notification" "custom/power"];
+
+      "hyprland/workspaces" = {
+        format = "{id}";
+        #persistent-workspaces = { "*" = 5; };   # always show 1–5
+      };
 
       clock = {
-        format = "{:%d.%m.%Y %H:%M}";
+        format = "{:%H:%M}";
+	format-alt = "{:%A, %d. %B %H:%M}";
         tooltip-format = "<tt>{calendar}</tt>";   # hover = calendar
+        
+   	calendar = {
+          mode = "month";
+          weeks-pos = "left";                      # show calendar weeks
+          format = {
+            today = "<span color='#${c.accent}'><b>{}</b></span>";   # today in Gruvbox green
+            weeks = "<span color='#${c.gray}'>{}</span>";             # week numbers in grey
+            weekdays = "<span color='#${c.yellow}'>{}</span>";        # Mo Tu We… in yellow
+          };
+	};
+      };
+
+      "custom/outside" = {
+        exec = "${ha-temp}/bin/ha-temp";
+        return-type = "json";
+        interval = 300;          # update every 5 minutes
       };
 
       pulseaudio = {
@@ -94,17 +136,15 @@ in
       }
 
       #workspaces button {
-        color: #${c.text};
-	      padding: 0px 2px;
-        margin: 2px 5px;
-        border-radius: 3px;
-        min-height: 0;
+        color: #${c.surface};      /* inactive dots: brownish grey */
+        padding: 0 4px;
+        margin: 2px 2px;
       }
 
       #workspaces button.active {
-        background: alpha(#${c.accent}, 0.3);
-      }
-     
+        color: #${c.accent};       /* active dot: Gruvbox green */
+        background: transparent;
+      }     
       #custom-power {
         color: #${c.red};
         padding: 0 12px;
@@ -112,6 +152,11 @@ in
 
       #clock, #pulseaudio, #network, #custom-notification {
         padding: 0px 10px;
+      }
+
+      #clock {
+        font-weight: bold;
+        color: #${c.text};
       }
     '';
   };

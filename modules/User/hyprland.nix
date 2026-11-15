@@ -55,7 +55,10 @@ in
 					col.inactive_border = "rgb(${c.surface})";
 				};
 			};
-					
+			workspace_rule =
+                                (map (i: { workspace = toString i; monitor = "DP-1"; persistent = true; }) [ 1 2 3 4 5 ])
+         			++
+                                (map (i: { workspace = toString i; monitor = "DP-3"; persistent = true; }) [ 6 7 8 9 10 ]);
 			bind = [
 				(bind "SUPER + Return" (exec "kitty"))
 				(bind "SUPER + I" (exec "firefox"))
@@ -91,6 +94,9 @@ in
                                 (bind "SHIFT + Print" (exec "hyprshot -m window -o ~/Pictures/Screenshots"))   # click a window
                                 (bind "SUPER + Print" (exec "hyprshot -m output -o ~/Pictures/Screenshots"))   # whole monitor
 				(bind "SUPER + SHIFT + V" (exec "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
+				(bind "XF86AudioPlay" (exec "swayosd-client --playerctl play-pause"))
+                                (bind "XF86AudioNext" (exec "swayosd-client --playerctl next"))
+                                (bind "XF86AudioPrev" (exec "swayosd-client --playerctl prev"))
 			] ++ workspaceBinds;
 
 			# Ignore apps asking to be maximized (kitty did this and hid other tiles)
@@ -110,6 +116,7 @@ in
 			on = { _args = ["hyprland.start" (lua ''
 				function()
 					hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+					hl.exec_cmd("solaar --window=hide")
 				end
 				'')];
 			};

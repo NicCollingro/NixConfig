@@ -13,7 +13,6 @@
     home-manager
 
     vesktop
-    spotify
 
     prismlauncher
   ];

@@ -37,5 +37,11 @@
     ./gtk.nix
     ./screenshot.nix
     ./clipboard.nix
+    ./spotify.nix
+    ./qobuz.nix
+    ./rebuild.nix
+    ./playerctl.nix
+    ./solar.nix
+    ./mouse-battery.nix
   ];
 }
