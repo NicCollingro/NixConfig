@@ -4,6 +4,8 @@ let c = import ./colorthemes.nix; in
   programs.kitty = {
     enable = true;
 
+    themeFile = "gruvbox-dark-soft";
+
     font = {
       name = "JetBrainsMono Nerd Font";
       package = pkgs.nerd-fonts.jetbrains-mono;
