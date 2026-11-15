@@ -35,5 +35,7 @@
     ./typst.nix
     ./swayosd.nix
     ./gtk.nix
+    ./screenshot.nix
+    ./clipboard.nix
   ];
 }

@@ -8,7 +8,7 @@
       wallpaper = [
         {
           monitor = "";                                    # empty = all monitors
-          path = "${../../wallpapers/milkyway.jpeg}";
+          path = "${../../wallpapers/gruvbox_topology.png}";
           fit_mode = "cover";                              # fill screen, crop if needed
         }
       ];

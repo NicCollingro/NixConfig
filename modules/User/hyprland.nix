@@ -87,6 +87,10 @@ in
 				(bind      "XF86AudioMute"        (exec "swayosd-client --output-volume mute-toggle"))
                                 (mediaBind "XF86AudioLowerVolume" (exec "swayosd-client --output-volume -1"))
                                 (mediaBind "XF86AudioRaiseVolume" (exec "swayosd-client --output-volume +1 --max-volume 100"))
+				(bind "Print"         (exec "hyprshot -m region -o ~/Pictures/Screenshots"))   # drag to select an area
+                                (bind "SHIFT + Print" (exec "hyprshot -m window -o ~/Pictures/Screenshots"))   # click a window
+                                (bind "SUPER + Print" (exec "hyprshot -m output -o ~/Pictures/Screenshots"))   # whole monitor
+				(bind "SUPER + SHIFT + V" (exec "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
 			] ++ workspaceBinds;
 
 			# Ignore apps asking to be maximized (kitty did this and hid other tiles)
